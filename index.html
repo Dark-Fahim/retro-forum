@@ -15,8 +15,12 @@
         rel="stylesheet">
 
     <style>
-        body{
+        body {
             font-family: "Mulish", serif;
+        }
+
+        .container {
+            max-width: 1170px;
         }
     </style>
 </head>
@@ -26,9 +30,65 @@
     <!-- Header -->
     <header>
         <!-- Navbar -->
-        <nav class="container">
-            
+        <nav class="container flex justify-between mx-auto items-center my-5">
+            <div class="logo">
+                <img src="./images/logo.png" alt="">
+            </div>
+            <div class="links flex items-center">
+                <ul class="flex gap-5">
+                    <li data-tip="Home" class="p-2 border tooltip bg-[#0307121A] rounded-full"><img
+                            src="./images/home.png" alt=""></li>
+                    <li data-tip="Pen" class="p-2 border tooltip bg-[#0307121A] rounded-full"><img
+                            src="./images/pen.png" alt=""></li>
+                    <li data-tip="Person" class="p-2 tooltip border bg-[#0307121A] rounded-full"><img
+                            src="./images/person.png" alt=""></li>
+                    <li data-tip="Flag" class="p-2 tooltip border bg-[#0307121A] rounded-full"><img
+                            src="./images/flag.png" alt=""></li>
+                </ul>
+                <button class="btn bg-[#797DFC] mx-4 my-2 text-white font-bold">Sign in</button>
+            </div>
         </nav>
+        <!-- Banner start -->
+        <section
+            class="container mx-auto  bg-[url('./images/bgbanner.png')] lg:min-h-[550px] rounded-xl bg-[#12132D] bg-no-repeat bg-contain lg:bg-cover h-auto ">
+            <!-- Banner conetnt -->
+            <div class="h-full flex  flex-col lg:flex-row items-center justify-evenly p-5">
+                <!-- title -->
+                <div class="my-10 flex flex-col justify-center space-y-5">
+                    <h1 class="lg:text-[64px] text-3xl font-black text-white">Wellcome To the <br> <span class="bg-gradient-to-r from-[#797DFC] to-[#797DFC1A] bg-clip-text text-transparent">ReTro</span> Forum</h1>
+                    <p class="text-white text-[20px] font-medium">Share your favorite opinion and win and wp forum coffee mug!</p>
+                    <div>
+                        <label class="input input-bordered flex items-center gap-2">
+                            <input type="text" class="grow" placeholder="Search Here Anything" />
+                            <button class="badge badge-info">Search</button>
+                          </label>
+                    </div>
+                </div>
+                <!-- info -->
+                <div>
+                    <div class="bg-white w-[370px] h-[280px] rounded-xl p-7 flex flex-col items-center justify-center gap-7">
+                        <div class="flex w-full text-[#12132DCC] text-[24px] font-medium justify-between">
+                            <p>Registerd Users</p>
+                            <p>01</p>
+                        </div>
+                        <div class="flex w-full text-[#12132DCC] text-[24px] font-medium justify-between">
+                            <p>Topics</p>
+                            <p>01</p>
+                        </div>
+                        <div class="flex w-full text-[#12132DCC] text-[24px] font-medium justify-between">
+                            <p>Forum</p>
+                            <p>01</p>
+                        </div>
+                        <div class="flex w-full text-[#12132DCC] text-[24px] font-medium justify-between">
+                            <p>Replies</p>
+                            <p>01</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Banner end -->
     </header>
     <!-- Body -->
     <main>
