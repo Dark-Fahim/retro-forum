@@ -117,7 +117,7 @@
                                 </div>
                                 <h2 class="text-[20px] font-bold">10 Kids Unaware of Their Halloween Costume</h2>
                                 <p class="text-[#12132D99]">
-                                    It’s one thing to subject yourself to ha Halloween  <br>
+                                    It’s one thing to subject yourself to ha Halloween <br>
                                     costume mishap because, hey that’s your prerogative
                                 </p>
                             </div>
@@ -142,19 +142,19 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
-                <div  class="col-span-1 bg-[#797DFC1A] p-6 rounded-xl">
+                <div id="read-container" class="col-span-1 bg-[#797DFC1A] p-6 rounded-xl">
                     <div class="flex justify-between">
                         <h2 class="text-2xl font-bold">Title</h2>
                         <div class="flex items-center justify-center gap-3">
                             <img src="./images/mark-read.png" alt="">
-                            <p class="">mark as read(<span>0</span>)</p>
+                            <p class="">mark as read(<span id="read-count">0</span>)</p>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between my-5 p-3 bg-white rounded-lg">
-                        <h3 class="font-semibold text-[16px]">10 Kids Unaware of Their Halloween Costume</h3>
-                        <div class="flex items-center text-[#12132D99]">
+                    <div class="grid grid-cols-3 my-5 p-3 bg-white rounded-lg">
+                        <h3 class="col-span-2 font-semibold text-[16px]">10 Kids Unaware of Their Halloween Costume</h3>
+                        <div class="flex items-center justify-end text-[#12132D99]">
                             <img src="./images/eye.png" alt="">
                             <span>1200</span>
                         </div>
@@ -169,7 +169,8 @@
             class="bg-[#12132D] rounded-xl lg:h-[400px] container mx-auto grid grid-cols-1 lg:grid-cols-2 justify-center items-center lg:px-16 p-5">
             <div>
                 <h1 class="lg:text-[40px] text-xl font-black text-white">Join Our Forum</h1>
-                <p class="text-white leading-10 font-medium mt-5 lg:text-[20px] text-sm">Share your favorite opinion and win and wp
+                <p class="text-white leading-10 font-medium mt-5 lg:text-[20px] text-sm">Share your favorite opinion and
+                    win and wp
                     forum coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
                 <button class="btn bg-[#797DFC] mx-4 my-2 text-white font-bold border-0">Registerd Now</button>
             </div>
@@ -184,7 +185,31 @@
         <section class="mx-auto container my-10">
             <h2 class="text-center text-[#12132D] text-[40px] font-black">Latest Posts</h2>
             <p class="text-[#12132D99] text-[18px] text-center my-6">Yes, you can run unit tests and view the results
-                directly within the app. The <br> integrated testing features allow for a streamlined .</p>
+                directly within the app. The <br> integrated testing features allow for a streamlined .
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3" id="latest-post-container">
+                <div class="card bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body">
+                        <p class="text-[#12132D99] flex items-center gap-2 text-sm"><img src="./images/calender.png" alt=""> <span>9 january 2025</span></p>
+                        <h2 class="card-title font-extrabold text-xl">Shoes!</h2>
+                        <p class="text-[#12132D99] text-sm">If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="flex gap-3 items-center">
+                            <img class="w-11 rounded-full" src="./images/home.png" alt="">
+                            <div>
+                                <h2 class="">Cameron Williamson</h2>
+                                <p>Unknwon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
         </section>
         <!-- Latest Post section end -->
@@ -194,7 +219,8 @@
     <footer class="bg-[#30325E1A] py-16">
         <div class="container mx-auto pb-10 border-b-2 flex flex-col items-center justify-center gap-7">
             <img src="./images/logo.png" alt="">
-            <p class="text-[#12132DB3] leading-7 text-center">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a <br> piece of classical Latin literature from 45 BC</p>
+            <p class="text-[#12132DB3] leading-7 text-center">Contrary to popular belief, Lorem Ipsum is not simply
+                random text. It has roots in a <br> piece of classical Latin literature from 45 BC</p>
             <div class="flex gap-5">
                 <img src="./images/facebook.png" alt="">
                 <img src="./images/twitter.png" alt="">

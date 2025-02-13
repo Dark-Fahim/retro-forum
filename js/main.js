@@ -62,7 +62,26 @@ const displayPosts = posts => {
 
 
 const markRead = (title, view)=>{
-    
+    const readCount = document.getElementById('read-count')
+    const readText = readCount.innerText;
+    readCount.innerText = parseInt(readText) + 1
+    const readContainer = document.getElementById('read-container')
+    const addRead = document.createElement('div')
+    addRead.classList = `grid grid-cols-3 my-5 p-3 bg-white rounded-lg`
+    addRead.innerHTML = `
+    <h3 class="col-span-2 font-semibold text-[16px]">${title}</h3>
+                        <div class="flex items-center justify-end text-[#12132D99]">
+                            <img src="./images/eye.png" alt="">
+                            <span>${view}</span>
+    `
+    readContainer.appendChild(addRead)
+
+}
+
+const loadLatestPost = async ()=>{
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
+    const data = await res.json()
+    console.log(data)
 }
 
 loadPost()
