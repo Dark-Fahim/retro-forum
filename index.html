@@ -32,64 +32,48 @@
         <!-- Navbar -->
         <div class="container mx-auto my-5 navbar bg-base-100">
             <div class="navbar-start">
-              <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h8m-8 6h16" />
-                  </svg>
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        <li data-tip="Home" class="tooltip"><a><img src="./images/home.png" alt=""></a>
+                        </li>
+                        <li data-tip="Write" class="tooltip"><a><img src="./images/pen.png" alt=""></a>
+                        </li>
+                        <li data-tip="Log in" class="tooltip"><a><img src="./images/person.png" alt=""></a>
+                        </li>
+                        <li data-tip="Flag" class="tooltip"><a><img src="./images/flag.png" alt=""></a>
+                        </li>
+                        <li><a class="btn bg-[#797DFC]"><button class="font-bold text-white ">Sign in</button></a>
+                        </li>
+                    </ul>
                 </div>
-                <ul
-                  tabindex="0"
-                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                  <li data-tip="Home" class="tooltip"><a><img
-                    src="./images/home.png" alt=""></a>
-                </li>
-                <li data-tip="Write" class="tooltip"><a><img
-                    src="./images/pen.png" alt=""></a>
-                </li>
-                <li data-tip="Log in" class="tooltip"><a><img
-                    src="./images/person.png" alt=""></a>
-                </li>
-                <li data-tip="Flag" class="tooltip"><a><img
-                    src="./images/flag.png" alt=""></a>
-                </li>
-                <li><a class="btn bg-[#797DFC]"><button class="font-bold text-white ">Sign in</button></a>
-                </li>
-                </ul>
-              </div>
-              <a class="text-xl btn btn-ghost"><img src="./images/logo.png" alt=""></a>
+                <a class="text-xl btn btn-ghost"><img src="./images/logo.png" alt=""></a>
             </div>
             <div class="hidden navbar-end lg:flex">
-              <ul class="px-1 menu menu-horizontal">
-                <li data-tip="Home" class="tooltip"><a><img
-                    src="./images/home.png" alt=""></a>
-                </li>
-                <li data-tip="Write" class="tooltip"><a><img
-                    src="./images/pen.png" alt=""></a>
-                </li>
-                <li data-tip="Log in" class="tooltip"><a><img
-                    src="./images/person.png" alt=""></a>
-                </li>
-                <li data-tip="Flag" class="tooltip"><a><img
-                    src="./images/flag.png" alt=""></a>
-                </li>
-                <li><a class="btn bg-[#797DFC]"><button class="font-bold text-white ">Sign in</button></a>
-                </li>
-                
-                
-              </ul>
+                <ul class="px-1 menu menu-horizontal">
+                    <li data-tip="Home" class="tooltip"><a><img src="./images/home.png" alt=""></a>
+                    </li>
+                    <li data-tip="Write" class="tooltip"><a><img src="./images/pen.png" alt=""></a>
+                    </li>
+                    <li data-tip="Log in" class="tooltip"><a><img src="./images/person.png" alt=""></a>
+                    </li>
+                    <li data-tip="Flag" class="tooltip"><a><img src="./images/flag.png" alt=""></a>
+                    </li>
+                    <li><a class="btn bg-[#797DFC]"><button class="font-bold text-white ">Sign in</button></a>
+                    </li>
+
+
+                </ul>
             </div>
-            
-          </div>
+
+        </div>
         <!-- Banner start -->
         <section
             class="container mx-auto  bg-[url('./images/bgbanner.png')] lg:min-h-[550px] rounded-xl bg-[#12132D] bg-no-repeat bg-contain lg:bg-cover h-auto ">
@@ -105,7 +89,8 @@
                     <div>
                         <label class="flex items-center gap-2 input input-bordered">
                             <input id="search-field" type="text" class="grow" placeholder="Search Here Anything" />
-                            <button onclick="handleSearch()" class="btn bg-[#797DFC] text-white font-bold">Search</button>
+                            <button onclick="handleSearch()"
+                                class="btn bg-[#797DFC] text-white font-bold">Search</button>
                         </label>
                     </div>
                 </div>
@@ -137,7 +122,14 @@
         <!-- Banner end -->
     </header>
     <!-- Body -->
+
     <main class="my-12">
+        <div id="spinner" class="justify-center hidden ">
+            <span class="loading loading-bars loading-xs"></span>
+            <span class="loading loading-bars loading-sm"></span>
+            <span class="loading loading-bars loading-md"></span>
+            <span class="loading loading-bars loading-lg"></span>
+        </div>
         <!-- Post section start -->
         <section class="container mx-auto my-10">
             <h2 class="text-center text-[#12132D] text-[40px] font-black">Let's Discuss</h2>
@@ -146,8 +138,8 @@
             </p>
             <div class="grid grid-cols-1 gap-6 mt-5 lg:grid-cols-3">
                 <div class="col-span-2" id="post-container">
-                    
-                    
+
+
 
                 </div>
                 <div id="read-container" class="col-span-1 h-max bg-[#797DFC1A] p-6 rounded-xl">
@@ -158,7 +150,7 @@
                             <p class="">mark as read(<span id="read-count">0</span>)</p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -189,7 +181,7 @@
             </p>
 
             <div class="grid grid-cols-1 gap-6 lg:grid-cols-3" id="latest-post-container">
-                
+
             </div>
 
 

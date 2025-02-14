@@ -1,4 +1,5 @@
 async function loadPost (){
+    loadSpinner(true)
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await res.json()
     displayPosts(data.posts)
@@ -7,7 +8,10 @@ async function loadPost (){
 const displayPosts = posts => {
     
     posts.filter(post => {
-        displayPostByFunction(post)
+        setTimeout(()=>{
+            displayPostByFunction(post)
+            loadSpinner(false)
+        }, 2000)
     })
     // console.log(posts)
 }
@@ -32,7 +36,7 @@ function displayPostByFunction(post){
                             <div class="space-y-5 border-b-2 border-dotted w-full">
                                 <div class="flex gap-3">
                                     <p># <span>${post.category}</span></p>
-                                    <p>Author: <span>${post.author.name}</span></p>
+                                    <p>Author: <span>${post.author?.name}</span></p>
                                 </div>
                                 <h2 class="text-[20px] font-bold">${post.description}</h2>
                                 <p class="text-[#12132D99]">
@@ -117,6 +121,7 @@ const displayLatestPosts = posts =>{
 const handleSearch = async ()=>{
     const inputField = document.getElementById('search-field')
     const inputText = inputField.value;
+    loadSpinner(true)
     const postContainer = document.getElementById('post-container')
     
     const error = document.createElement('div')
@@ -132,7 +137,7 @@ const handleSearch = async ()=>{
             postContainer.innerHTML = ''
             postContainer.appendChild(error)
         }
-        if(posts.length === 0){  
+        if(posts.length === 0){
             throw "No Data Found"
         }
         else if(inputText.length <= 0){
@@ -149,6 +154,7 @@ const handleSearch = async ()=>{
         console.log('something wrong', err)
         error.innerText = err
         error.classList.remove('hidden')
+        
     }
     inputField.value = ''
 }
@@ -157,10 +163,23 @@ function displaySearchPosts(posts){
     const postContainer = document.getElementById('post-container')
     postContainer.textContent = ''
     posts.filter(post => {
-        displayPostByFunction(post)
+        setTimeout(()=>{
+            displayPostByFunction(post)
+            loadSpinner(false)
+        }, 2000)
     })
 }
 
+function loadSpinner(isLoading){
+    const spinner = document.getElementById('spinner')
+    if(isLoading){
+        spinner.style.display = 'flex'
+    }
+    else{
+        spinner.style.display = 'none'
+    }
+}
 
-loadLatestPost()
+
 loadPost()
+loadLatestPost()
