@@ -89,7 +89,10 @@ const markRead = (title, view)=>{
 const loadLatestPost = async ()=>{
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
     const data = await res.json()
-    displayLatestPosts(data)
+    setTimeout(()=>{
+        // loadSpinner(true)
+        displayLatestPosts(data)
+    },1000)
 }
 const displayLatestPosts = posts =>{
     const latestPostContainer = document.getElementById('latest-post-container')
@@ -117,6 +120,7 @@ const displayLatestPosts = posts =>{
         `
         latestPostContainer.appendChild(latestpost)
     })
+
 }
 
 const handleSearch = async ()=>{
@@ -169,11 +173,14 @@ function displaySearchPosts(posts){
 
 function loadSpinner(isLoading){
     const spinner = document.getElementById('spinner')
+    const spinner2 = document.getElementById('spinner2')
     if(isLoading){
         spinner.style.display = 'flex'
+        spinner2.style.display = 'flex'
     }
     else{
         spinner.style.display = 'none'
+        spinner2.style.display = 'none'
     }
 }
 
