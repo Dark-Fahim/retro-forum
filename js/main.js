@@ -1,3 +1,4 @@
+loadPost()
 async function loadPost (){
     loadSpinner(true)
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
@@ -123,7 +124,7 @@ const handleSearch = async ()=>{
     const inputText = inputField.value;
     loadSpinner(true)
     const postContainer = document.getElementById('post-container')
-    
+    postContainer.innerHTML = ''
     const error = document.createElement('div')
     error.classList = `text-3xl text-center text-red-500 font-bold`
     try{
@@ -137,13 +138,8 @@ const handleSearch = async ()=>{
             postContainer.innerHTML = ''
             postContainer.appendChild(error)
         }
-        if(posts.length === 0){
-            throw "No Data Found"
-        }
-        else if(inputText.length <= 0){
-            postContainer.innerHTML = ''
-            postContainer.appendChild(error)
-            throw "Write Something for search"
+        if(posts.length === 0 || inputText.length === ''){
+            throw "No Data Found.!! Write valid Something for Search"
         }
         else{
             error.classList.add('hidden')
@@ -156,17 +152,18 @@ const handleSearch = async ()=>{
         error.classList.remove('hidden')
         
     }
+    loadSpinner(false)
     inputField.value = ''
 }
 
 function displaySearchPosts(posts){
     const postContainer = document.getElementById('post-container')
-    postContainer.textContent = ''
+    postContainer.innerHTML = ''
     posts.filter(post => {
         setTimeout(()=>{
             displayPostByFunction(post)
             loadSpinner(false)
-        }, 2000)
+        }, 1000)
     })
 }
 
@@ -181,5 +178,4 @@ function loadSpinner(isLoading){
 }
 
 
-loadPost()
 loadLatestPost()
