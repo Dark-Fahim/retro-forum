@@ -5,10 +5,16 @@ async function loadPost (){
 }
 
 const displayPosts = posts => {
-    const postContainer = document.getElementById('post-container')
+    
     posts.filter(post => {
-        console.log(post)
-        let active = ''
+        displayPostByFunction(post)
+    })
+    // console.log(posts)
+}
+
+function displayPostByFunction(post){
+    const postContainer = document.getElementById('post-container')
+    let active = ''
         if(post.isActive){
             active = '#10B981'
         }
@@ -56,10 +62,7 @@ const displayPosts = posts => {
                         </div>
         `
         postContainer.appendChild(card)
-    })
-    // console.log(posts)
 }
-
 
 const markRead = (title, view)=>{
     const readCount = document.getElementById('read-count')
@@ -81,7 +84,83 @@ const markRead = (title, view)=>{
 const loadLatestPost = async ()=>{
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
     const data = await res.json()
-    console.log(data)
+    displayLatestPosts(data)
+}
+const displayLatestPosts = posts =>{
+    const latestPostContainer = document.getElementById('latest-post-container')
+    posts.filter(post => {
+        console.log(post)
+        const latestpost = document.createElement('div')
+        latestpost.classList = `card bg-base-100 shadow-xl`
+        latestpost.innerHTML = `
+        <figure class="px-10 pt-10">
+                        <img src="${post.cover_image}"
+                            alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body space-y-5">
+                        <p class="text-[#12132D99] flex items-center gap-2 text-sm"><img src="./images/calender.png" alt=""> <span>${post?.author?.posted_date || 'No Publish Date'}</span></p>
+                        <h2 class="card-title font-extrabold text-xl">${post.title}</h2>
+                        <p class="text-[#12132D99] text-sm">${post.description}</p>
+                        <div class="flex gap-3 items-center">
+                            <img class="w-11 rounded-full" src="${post.profile_image}" alt="">
+                            <div>
+                                <h2 class="">${post.author.name}</h2>
+                                <p>${post?.author?.designation || 'Unknown'}</p>
+                            </div>
+                        </div>
+                    </div>
+        `
+        latestPostContainer.appendChild(latestpost)
+    })
 }
 
+const handleSearch = async ()=>{
+    const inputField = document.getElementById('search-field')
+    const inputText = inputField.value;
+    const postContainer = document.getElementById('post-container')
+    
+    const error = document.createElement('div')
+    error.classList = `text-3xl text-center text-red-500 font-bold`
+    try{
+        const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${inputText}`);
+        const data =await res.json()
+        const posts = data.posts
+        if(posts.length>0){
+            displaySearchPosts(posts)
+        }
+        else{
+            postContainer.innerHTML = ''
+            postContainer.appendChild(error)
+        }
+        if(posts.length === 0){  
+            throw "No Data Found"
+        }
+        else if(inputText.length <= 0){
+            postContainer.innerHTML = ''
+            postContainer.appendChild(error)
+            throw "Write Something for search"
+        }
+        else{
+            error.classList.add('hidden')
+        }
+        
+    } 
+    catch(err){
+        console.log('something wrong', err)
+        error.innerText = err
+        error.classList.remove('hidden')
+    }
+    inputField.value = ''
+}
+
+function displaySearchPosts(posts){
+    const postContainer = document.getElementById('post-container')
+    postContainer.textContent = ''
+    posts.filter(post => {
+        displayPostByFunction(post)
+    })
+}
+
+
+loadLatestPost()
 loadPost()
